@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+<title>Ingreso de Notas U.M.G</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<link rel="stylesheet" type="text/css" href="plantillas/minerva/fuentes/minerva.css">
+<script language="javascript" type="text/javascript" src="plantillas/minerva/fuentes/ajax/lib/simple.js"></script>
+
+<script src="lib.jquery.js" type = "text/javascript"></script>
+<!--script src="jquery.table-hover.js" type = "text/javascript"></script-->
+
+<script type = "text/javascript">
+	$(document).ready(function(){
+		// --> $('#ACTA').tableHover();
+		
+		$("#ACTA input").each(function(i, o){
+			$(o).focus(function(){
+				$(this).parent().parent().parent().find("td").removeClass("hover");
+				$(this).parent().parent().find("td").addClass("hover");
+			});
+		});
+	});
+</script>
+
+
+</head>
+<body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-709227-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+<!-- Validador datos generales -->
+
+<script type="text/javascript" language="JavaScript">
+<!--
+// Copyright information must stay intact
+// FormCheck v1.10
+// Copyright NavSurf.com 2002, all rights reserved
+// Creative Solutions for JavaScript navigation menus, scrollers and web widgets
+// Affordable Services in JavaScript consulting, customization and trouble-shooting
+// Visit NavSurf.com at https://navsurf.com
+
+function formCheck(formobj){
+	// name of mandatory fields
+	var fieldRequired = Array("semestre", "anio", "codigo_carrera", "codigo_curso", "seccion","username","password","fecha_evaluacion","token");
+	// field description to appear in the dialog box
+	var fieldDescription = Array("Semestre", "Año", "Código de Carrera", "Código de Curso", "Sección","Código de Catedrático","Contraseña","Fecha de evaluación","Clave");
+	// dialog message
+	var alertMsg = "Por favor verifique los campos siguientes:\n";
+	
+	var l_Msg = alertMsg.length;
+	
+	for (var i = 0; i < fieldRequired.length; i++){
+		var obj = formobj.elements[fieldRequired[i]];
+		if (obj){
+			if (obj.type == null){
+				var blnchecked = false;
+				for (var j = 0; j < obj.length; j++){
+					if (obj[j].checked){
+						blnchecked = true;
+					}
+				}
+				if (!blnchecked){
+					alertMsg += " - " + fieldDescription[i] + "\n";
+				}
+				continue;
+			}
+
+			switch(obj.type){
+			case "select-one":
+				if (obj.selectedIndex == -1 || obj.options[obj.selectedIndex].text == ""){
+					alertMsg += " - " + fieldDescription[i] + "\n";
+				}
+				break;
+			case "select-multiple":
+				if (obj.selectedIndex == -1){
+					alertMsg += " - " + fieldDescription[i] + "\n";
+				}
+				break;
+			case "text":
+			case "textarea":
+				if (obj.value == "" || obj.value == null){
+					alertMsg += " - " + fieldDescription[i] + "\n";
+				}
+				break;
+			default:
+			}
+		}
+	}
+
+	if (alertMsg.length == l_Msg){
+		return true;
+	}else{
+		alert(alertMsg);
+		return false;
+	}
+}
+// -->
+</script>
+<!-- Validador datos generales -->
+
+<SCRIPT LANGUAGE="JavaScript">
+
+/* Creamos la función para validar los campos de formulario */
+function ValidarFormulario(form1) {
+
+/* Condiciones que verifican si el campo está vacío */
+if ( isNaN( parseInt( form1.p1.value) ) ){
+/* Se dispara un cuadro alert con el mensaje. Se hace foco sobre el elemento */
+	alert("Ingrese valor al primer parcial."); form1.p1.focus(); return;
+}
+
+if ( isNaN( parseInt( form1.p2.value ) ) ) {
+	alert("Ingrese valor al segundo parcial."); form1.p2.focus(); return;
+}
+
+if ( isNaN( parseInt( form1.act1.value ) ) ) {
+	alert("Ingrese valor actividades."); form1.act1.focus(); return;
+}
+
+if ( isNaN( parseInt( form1.zona_minima.value ) ) ) {
+	alert("Ingrese valor a zona mínima."); form1.zona_minima.focus(); return;
+}
+
+if ( isNaN( parseInt( form1.punteo_minimo.value ) ) ) {
+	alert("Ingrese valor a punteo mínimo."); form1.punteo_minimo.focus(); return;
+} else if ( parseInt( form1.punteo_minimo.value ) == 0 )  {
+	alert("No puede asignar un valor para Punteo Mínimo igual a 0 (cero) puntos y/o menor a la zona mínima."); form1.punteo_minimo.focus(); return;
+}
+
+/* Se envía el formulario */
+form1.submit();
+
+}
+
+</SCRIPT>
+
+
+<center><table style="text-align: left;" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+
+      <td class="cabecera"><center> <img src= "https://apps1.umg.edu.gt/actas/plantillas/minerva/fuentes/imagenes2/logo.jpg"  align="center" border="0"></center>
+
+</td>
+    </tr>
+	<tr>
+    <td class="subtitulo">
+       <center>
+            <img src="https://apps1.umg.edu.gt/actas/plantillas/minerva/fuentes/imagenes2/sub_titulo.jpg" border="0">
+</center>
+</td>
+</tr>
+
+
+<tr>
+    <td>
+        <br>
+        <script type= "text/javascript">
+            
+            function _submit()
+            {
+                if (formCheck(document.login) == true) {
+                    document.login.submit();
+                
+                    document.getElementById("loading").style.display = "";
+
+                    window.setTimeout('document.getElementById("loading").style.display = "none";', 1300000);    
+                }
+                
+                
+            }
+            
+        </script>
+	<table align="center" border="0" width="715">
+            <tr>
+                <td>
+                    <noscript>
+                        <font color="#a20303">Se ha detectado que su navegador tiene deshabilitado JavaScript.  A fin que pueda utilizar correctamente esta aplicación debe habilitarlo antes de ingresar.</font>
+                    </noscript>
+                </td>
+            </tr>
+            <tr>
+                <td>
+				<!--center><img src="https://www.umg.edu.gt/imagenes/umg22.gif" /></center><br /><br />
+				<center><font color="#a20303"><strong>El sistema est&aacute; en mantenimiento.  Este procedimiento tardar&aacute; varios minutos.  <br /><br />Por favor espere mientras se reanuda el servicio.</strong></font></center-->
+		<!--<font color="#a20303"><strong>El sistema est&aacute; experimentando fallas de conexi&oacute;n.  El sistema podr&iacute;a
+estar inestable. Reanudaremos el servicio pronto. </strong></font>-->
+                                        <table border="0" widht="70%" class="ingreso">
+                        
+                                       <tr>
+                        <td colspan= "2">
+                            <div id= "loading" style= "display: none;">
+                                <img align= "middle" src="https://apps1.umg.edu.gt/actas/plantillas/minerva/fuentes/imagenes/bigWaiting.gif" /> <strong>Por favor espere en lo que responde el Sistema ... </strong><br /><br />
+                            </div>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td width = "150">
+                    <form action= "login.php" name= "login" method= "post" onsubmit="return formCheck(this);">
+            <b>Semestre / Trimestre / Bimestre:</b>
+                        </td>
+                        <td>
+            <input type= "text" name= "semestre" maxlength="1" size="33"  />
+                        </td>
+                        <td>
+                        Licenciaturas: 1 ó 2.  Maestrías: 1, 2, 3 ó 4
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style= "padding-top: 10px">
+            <b>A&ntilde;o:</b>
+                        </td>
+                        <td style= "padding-top: 10px">
+            <input type = "text" name= "anio" maxlength="4" size="33"  />
+                        </td>
+                        <td>Ingrese el a&ntilde;o. (Ejemplo: 2008)
+                        </td>
+                        </tr>
+            
+            <tr>
+                            <td>
+           
+            <b>C&oacute;digo de Carrera:</b>
+                            </td>
+                            <td>
+            <input type= "text" name= "codigo_carrera" maxlength="6" size="33"  />
+                            </td>
+                            <td>
+                                Ingrese c&oacute;digo de carrera.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+            <b>C&oacute;digo de Curso:</b>
+                            </td>
+                            <td>
+            <input type= "text" name= "codigo_curso" maxlength="6" size="33"  />
+                            </td>
+                            <td>
+                        Ingrese c&oacute;digo de curso.
+                            </td>
+                        </tr>            
+                        
+                         <tr>
+                        <td>
+            <b>Secci&oacute;n:</b>
+                        </td>
+                        <td>
+            <input type= "text" name= "seccion" maxlength="1" size="33"  />
+                        </td>
+                        <td> Ingrese secci&oacute;n del curso. (Ejemplo: A)
+                        </td>
+                        </tr>
+                        
+            <tr>
+                        <td>
+            <b>Tipo Evaluaci&oacute;n:</b>
+                        </td>
+                        <td>
+            <select name="evaluacion">
+<option value ="1" selected="selected">Primer Parcial</option>
+<option value ="2">Extraordinario Primer Parcial</option>
+<option value ="3">Segundo Parcial</option>
+<option value ="4">Extraordinario Segundo Parcial</option>
+<option value ="5">Final</option>
+<option value ="6">Recuperaci&oacute;n</option>
+<option value ="7">Recuperaci&oacute;n Medicina</option>
+<option value ="8">Recuperaci&oacute;n 2</option>
+</select>
+                        </td>
+                        <td>Seleccione tipo de evaluaci&oacute;n.
+                        </td>
+                        </tr>            
+                        
+                        <tr>
+                            <td>
+        
+            <b>C&oacute;digo de Catedr&aacute;tico:</b>
+                            </td>
+                            <td>
+            <input type= "text" name= "username" value= "" size="33"  />
+                            </td>
+                            <td>
+                             Ingrese c&oacute;digo de catedr&aacute;tico.   
+                            </td>
+                        </tr>
+        
+                        <tr>
+                            <td>
+            <b>PIN:</b>
+                            </td>
+                            <td>
+            <input type = "password" name = "password" size="33"  />
+                            </td>
+                        <td>
+                            Ingrese PIN.
+                        </td>
+                        </tr>
+                        
+                       
+                        <tr>
+                        <td><br>
+            <center><input type= "button" value= "Ingresar" onclick= "_submit();" onclick2= "alert('El sistema esta en mantenimiento.  Este procedimiento puede tardar varios minutos.  Por favor espere mientras se reanuda el servicio')"  /></center>
+            </form>
+
+
+
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+            </tr>
+                        </table>
+
+<div id="testtoggle" style="display:none; width:430px" >
+  <div class="myborder">
+ <br> Por favor espere un momento. (Procesando información ...)
+  </div>
+ </div>
+
+<!--font size="2">
+<br><b>Importante:</b><br>
+Para la emisi&oacute;n de actas es necesario contar con el software <b><a href="https://www.adobe.com/es/products/reader/productinfo/faq/#q1" target="_blank">Adobe Acrobat Reader</a></b>, si no cuenta con dicho programa podr&aacute; descargarlo gratuitamente pulsando <b><a href="https://www.adobe.com/es/products/acrobat/readstep2_allversions.html" target="_blank">aqu&iacute;</a></b>.
+</font-->
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+
+</td>
+</tr>
+<!--tr>
+    <td colspan = "10">
+        <br />
+        <table width="70%" border="0" align="center">
+            <tr>
+                <td>
+                    &iquest;Tiene el manual de Ingreso de Notas?
+                </td>
+            </tr>
+        </table>
+        
+    </td>
+</tr-->
+</table>
+
+<div id="pie"><div class="ancho_general">
+		<div class="dos-columnas">
+
+<strong>Universidad Mariano G&aacute;lvez de Guatemala</strong><br /> 3a. Avenida 9-00 zona 2, 01002 Interior Finca El Zapote,  Apartado Postal 1811 PBX: (502) 2411-1800, FAX: (502) 2288-4040<br>
+
+</div>
+
+	</div></div>
+
+</body>
+</html>
